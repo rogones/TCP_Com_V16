@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2022-01-20T18:36:24.9081156Z</Created>
+    <Created>2022-01-20T19:04:41.3515111Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -51,7 +51,9 @@
       </Comment>
     </Member>
   </Section>
-  <Section Name="Temp" />
+  <Section Name="Temp">
+    <Member Name="suma" Datatype="Int" />
+  </Section>
   <Section Name="Constant" />
 </Sections></Interface>
       <IsIECCheckEnabled>false</IsIECCheckEnabled>
@@ -77,18 +79,52 @@
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
-    <Call UId="21">
+    <Access Scope="LiteralConstant" UId="21">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>1</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="22">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>1</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="suma" />
+      </Symbol>
+    </Access>
+    <Call UId="24">
       <CallInfo Name="TCPIP_COMMS" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="22">
+        <Instance Scope="GlobalVariable" UId="25">
           <Component Name="TCPIP_COMMS_DB" />
         </Instance>
       </CallInfo>
     </Call>
+    <Part Name="Add" UId="26" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
   </Parts>
   <Wires>
-    <Wire UId="23">
+    <Wire UId="27">
       <Powerrail />
-      <NameCon UId="21" Name="en" />
+      <NameCon UId="24" Name="en" />
+      <NameCon UId="26" Name="en" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="30">
+      <NameCon UId="26" Name="out" />
+      <IdentCon UId="23" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
